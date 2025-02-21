@@ -32,9 +32,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t nome-da-imagem .
+          docker build -t nome-da-imagem ./Front/network-app
           docker tag nome-da-imagem:latest username/nome-da-imagem:latest
 
       - name: Push Docker image to Docker Hub
         run: |
           docker push username/nome-da-imagem:latest
+
