@@ -5,10 +5,14 @@ FROM node:16 AS build
 WORKDIR /app
 
 # Copia o package.json e o package-lock.json (caso existam)
-COPY package*.json ./
+COPY Front/network-app/package*.json ./
+
+# Verifica se o package.json foi copiado corretamente
+RUN ls -al /app
 
 # Instala as dependências do projeto
 RUN npm install
+
 
 # Copia o resto do código da aplicação
 COPY . .
