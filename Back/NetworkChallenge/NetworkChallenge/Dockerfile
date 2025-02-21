@@ -2,8 +2,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 COPY ./Back/NetworkChallenge/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
 RUN dotnet restore ./NetworkChallenge/NetworkChallenge.csproj
