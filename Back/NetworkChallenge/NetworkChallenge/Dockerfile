@@ -5,7 +5,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copia o arquivo .csproj e restaura as dependências
-COPY ./Back/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
+COPY ./Back/NetworkChallenge/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
+
+# Muda para o diretório do projeto
 WORKDIR /src/NetworkChallenge
 
 # Verifica se o .csproj está no diretório correto
@@ -16,4 +18,3 @@ RUN dotnet restore
 
 # Construa o projeto
 RUN dotnet build NetworkChallenge.csproj -c Release -o /app/build
-
