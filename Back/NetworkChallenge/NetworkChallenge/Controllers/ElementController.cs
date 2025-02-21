@@ -28,6 +28,7 @@ namespace ChallengeRegisterAPI.Controllers
                 var result = connections.Select(c => new
                 {
                     Id = c.Id.ToString(),
+                    c.NumberId,
                     c.Element1,
                     c.Element2,
                     c.Timestamp
@@ -62,6 +63,9 @@ namespace ChallengeRegisterAPI.Controllers
                     {
                         return Conflict("A conexão já existe.");
                     }
+
+                    var totalConnections = await _networkCollection.CountDocumentsAsync(FilterDefinition<NetworkConnection>.Empty);
+                    connection.NumberId = (int)totalConnections + 1;
 
                     connection.Timestamp = DateTime.UtcNow;
                     await _networkCollection.InsertOneAsync(connection);

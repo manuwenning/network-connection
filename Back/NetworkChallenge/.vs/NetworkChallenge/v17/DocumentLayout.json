@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|c:\\users\\woopi\\documents\\desafio\\back\\networkchallenge\\networkchallenge\\controllers\\elementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|solutionrelative:networkchallenge\\controllers\\elementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|c:\\users\\woopi\\documents\\desafio\\back\\networkchallenge\\networkchallenge\\models\\networkconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|solutionrelative:networkchallenge\\models\\networkconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|c:\\users\\woopi\\documents\\desafio\\back\\networkchallenge\\networkchallenge\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|solutionrelative:networkchallenge\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|c:\\users\\woopi\\documents\\desafio\\back\\networkchallenge\\networkchallenge\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{56F9B850-D806-40AD-BA59-765797795C64}|NetworkChallenge\\NetworkChallenge.csproj|solutionrelative:networkchallenge\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\appsettings.json",
+              "RelativeDocumentMoniker": "NetworkChallenge\\appsettings.json",
+              "ToolTip": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\appsettings.json",
+              "RelativeToolTip": "NetworkChallenge\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-18T00:14:41.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NetworkConnection.cs",
+              "DocumentMoniker": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Models\\NetworkConnection.cs",
+              "RelativeDocumentMoniker": "NetworkChallenge\\Models\\NetworkConnection.cs",
+              "ToolTip": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Models\\NetworkConnection.cs",
+              "RelativeToolTip": "NetworkChallenge\\Models\\NetworkConnection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T00:01:55.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Program.cs",
+              "RelativeDocumentMoniker": "NetworkChallenge\\Program.cs",
+              "ToolTip": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Program.cs",
+              "RelativeToolTip": "NetworkChallenge\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T23:17:15.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ElementController.cs",
+              "DocumentMoniker": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Controllers\\ElementController.cs",
+              "RelativeDocumentMoniker": "NetworkChallenge\\Controllers\\ElementController.cs",
+              "ToolTip": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\Controllers\\ElementController.cs",
+              "RelativeToolTip": "NetworkChallenge\\Controllers\\ElementController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwCIAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T23:18:15.216Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

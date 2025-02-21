@@ -11,21 +11,40 @@ var mongoDbConnectionString = builder.Configuration.GetConnectionString("MongoDb
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
     new MongoClient(mongoDbConnectionString));
 
-// Registrar o resto dos serviços
+// Configura o CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+});
+
+// Registra os serviços do Swagger, controladores e API
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Configuração do Swagger para ambientes de desenvolvimento
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Aplica o CORS
+app.UseCors("AllowAllOrigins");
+
+// Configura os middlewares de redirecionamento de HTTPS e autorização
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+// Mapeia os controladores
 app.MapControllers();
 
 app.Run();
+
+
+

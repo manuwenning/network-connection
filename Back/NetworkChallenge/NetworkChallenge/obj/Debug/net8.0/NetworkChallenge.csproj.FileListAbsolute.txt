@@ -37,3 +37,4 @@ C:\Users\WOOPI\Documents\Desafio\Back\NetworkChallenge\NetworkChallenge\obj\Debu
 C:\Users\WOOPI\Documents\Desafio\Back\NetworkChallenge\NetworkChallenge\obj\Debug\net8.0\NetworkChallenge.pdb
 C:\Users\WOOPI\Documents\Desafio\Back\NetworkChallenge\NetworkChallenge\obj\Debug\net8.0\NetworkChallenge.genruntimeconfig.cache
 C:\Users\WOOPI\Documents\Desafio\Back\NetworkChallenge\NetworkChallenge\obj\Debug\net8.0\ref\NetworkChallenge.dll
+C:\Users\WOOPI\Documents\Desafio\Back\NetworkChallenge\NetworkChallenge\obj\Debug\net8.0\NetworkChallenge.sourcelink.json
