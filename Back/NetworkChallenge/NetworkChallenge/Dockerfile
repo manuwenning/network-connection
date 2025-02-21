@@ -1,20 +1,19 @@
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-
+# Usa uma imagem base do .NET SDK para construção
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-COPY ./Back/NetworkChallenge/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
-RUN dotnet restore ./NetworkChallenge/NetworkChallenge.csproj
+# Define o diretório de trabalho dentro do container
+WORKDIR /src
 
-COPY ./Back/NetworkChallenge/NetworkChallenge/ ./NetworkChallenge/
+# Copia o arquivo .csproj e restaura as dependências
+COPY ./Back/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
 WORKDIR /src/NetworkChallenge
+
+# Verifica se o .csproj está no diretório correto
+RUN ls -al /src/NetworkChallenge
+
+# Restaura as dependências
+RUN dotnet restore
+
+# Construa o projeto
 RUN dotnet build NetworkChallenge.csproj -c Release -o /app/build
 
-FROM build AS publish
-RUN dotnet publish NetworkChallenge.csproj -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "NetworkChallenge.dll"]
