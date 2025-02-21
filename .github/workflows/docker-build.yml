@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   push:
     branches:
-      - main  # Ou a branch que você deseja usar para o build
+      - main
 
 jobs:
   build:
@@ -24,16 +24,16 @@ jobs:
 
       - name: Build front-end Docker image
         run: |
-          docker build -f ./Front/network-app/Dockerfile -t username/nome-da-imagem-front .
+          docker build -f Front/network-app/Dockerfile -t manuwenning/network-front .  # Substitua "username" pelo seu Docker Hub
 
       - name: Build back-end Docker image
         run: |
-          docker build -f ./Back/NetworkChallenge/NetworkChallenge/Dockerfile -t username/nome-da-imagem-back .
+          docker build -f Back/NetworkChallenge/NetworkChallenge/Dockerfile -t manuwenning/network-back .  # Substitua "username" pelo seu Docker Hub
 
       - name: Push front-end Docker image
         run: |
-          docker push username/nome-da-imagem-front
+          docker push manuwenning/network-front  # Substitua "username" pelo seu Docker Hub
 
       - name: Push back-end Docker image
         run: |
-          docker push username/nome-da-imagem-back
+          docker push manuwenning/network-back  # Substitua "username" pelo seu Docker Hub
