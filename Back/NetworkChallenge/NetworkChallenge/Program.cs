@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
 // 🔹 Configuração do MongoDB
 var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDB");
 var mongoClient = new MongoClient(mongoConnectionString);
-var database = mongoClient.GetDatabase("NomeDoBanco"); // Substitua pelo nome real do seu banco
+var database = mongoClient.GetDatabase("challengeRegister"); // Substitua pelo nome real do seu banco
 
 // Disponibiliza o banco de dados no container de injeção de dependências
 builder.Services.AddSingleton(database);
