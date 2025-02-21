@@ -1,50 +1,57 @@
-using MongoDB.Driver;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// L� a connection string do appsettings.json
-var mongoDbConnectionString = builder.Configuration.GetConnectionString("MongoDb");
-
-// Registra o MongoDB client no container de servi�os
-builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
-    new MongoClient(mongoDbConnectionString));
-
-// Configura o CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins", builder =>
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader());
-});
-
-// Registra os servi�os do Swagger, controladores e API
+// 🔹 Adiciona suporte a Controllers e Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// 🔹 Configuração do CORS (Permite todas as origens)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+// 🔹 Configuração do MongoDB
+var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDB");
+var mongoClient = new MongoClient(mongoConnectionString);
+var database = mongoClient.GetDatabase("NomeDoBanco"); // Substitua pelo nome real do seu banco
+
+// Disponibiliza o banco de dados no container de injeção de dependências
+builder.Services.AddSingleton(database);
+
 var app = builder.Build();
 
-// Configura��o do Swagger para ambientes de desenvolvimento
+// 🔹 Ativa o CORS na aplicação
+app.UseCors("AllowAllOrigins");
+
+// 🔹 Configuração do Swagger apenas em desenvolvimento
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Aplica o CORS
-app.UseCors("AllowAllOrigins");
-
-// Configura os middlewares de redirecionamento de HTTPS e autoriza��o
 app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
-// Mapeia os controladores
-app.MapControllers();
+app.MapControllers(); // Garante que os controllers sejam usados
 
 app.Run();
+
 
 
 
