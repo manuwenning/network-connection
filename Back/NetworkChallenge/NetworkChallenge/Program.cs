@@ -1,57 +1,57 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// 🔹 Adiciona suporte a Controllers e Swagger
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// 🔹 Configuração do CORS (Permite todas as origens)
-builder.Services.AddCors(options =>
+public class Program
 {
-    options.AddPolicy("AllowAllOrigins", policy =>
+    public static void Main(string[] args)
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
+        var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 Configuração do MongoDB
-var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDB");
-var mongoClient = new MongoClient(mongoConnectionString);
-var database = mongoClient.GetDatabase("challengeRegister"); // Substitua pelo nome real do seu banco
+        // Adiciona suporte a Controllers e Swagger
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
-// Disponibiliza o banco de dados no container de injeção de dependências
-builder.Services.AddSingleton(database);
+        // Configuração do CORS
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAllOrigins", policy =>
+            {
+                policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                      .AllowAnyHeader();
+            });
+        });
 
-var app = builder.Build();
+        // Configuração do MongoDB
+        var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDB");
+        var mongoClient = new MongoClient(mongoConnectionString);
+        var database = mongoClient.GetDatabase("challengeRegister");
 
-// 🔹 Ativa o CORS na aplicação
-app.UseCors("AllowAllOrigins");
+        // Disponibiliza o banco de dados no container de injeção de dependências
+        builder.Services.AddSingleton(database);
 
-// 🔹 Configuração do Swagger apenas em desenvolvimento
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        var app = builder.Build();
+
+        // Ativa o CORS
+        app.UseCors("AllowAllOrigins");
+
+        // Configuração do Swagger
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.MapControllers(); // Garante que os controllers sejam usados
+
+        // Inicia a aplicação
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers(); // Garante que os controllers sejam usados
-
-app.Run();
-
-
-
-
