@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XZCT5o/Nze8=",
+  "dgSpecHash": "cPhFhBiOQTg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\WOOPI\\Documents\\Desafio\\Back\\NetworkChallenge\\NetworkChallenge\\NetworkChallenge.csproj",
+  "projectFilePath": "C:\\Users\\WOOPI\\Documents\\GitHub\\network-connection\\Back\\NetworkChallenge\\NetworkChallenge\\NetworkChallenge.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\WOOPI\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\WOOPI\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
