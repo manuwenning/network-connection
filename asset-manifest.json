@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/network-app/static/css/main.e6c13ad2.css",
-    "main.js": "/network-app/static/js/main.2cfef5f3.js",
-    "static/js/453.39e8639e.chunk.js": "/network-app/static/js/453.39e8639e.chunk.js",
-    "index.html": "/network-app/index.html",
-    "main.e6c13ad2.css.map": "/network-app/static/css/main.e6c13ad2.css.map",
-    "main.2cfef5f3.js.map": "/network-app/static/js/main.2cfef5f3.js.map",
-    "453.39e8639e.chunk.js.map": "/network-app/static/js/453.39e8639e.chunk.js.map"
+    "main.css": "/network-connection/static/css/main.e6c13ad2.css",
+    "main.js": "/network-connection/static/js/main.18361558.js",
+    "static/js/453.39e8639e.chunk.js": "/network-connection/static/js/453.39e8639e.chunk.js",
+    "index.html": "/network-connection/index.html",
+    "main.e6c13ad2.css.map": "/network-connection/static/css/main.e6c13ad2.css.map",
+    "main.18361558.js.map": "/network-connection/static/js/main.18361558.js.map",
+    "453.39e8639e.chunk.js.map": "/network-connection/static/js/453.39e8639e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.2cfef5f3.js"
+    "static/js/main.18361558.js"
   ]
 }
