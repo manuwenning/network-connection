@@ -7,7 +7,7 @@ function Networks() {
   // Função para buscar as conexões
   const fetchConnections = async () => {
     try {
-      const response = await fetch("hhttps://network-back-production.up.railway.app/api/network/list");
+      const response = await fetch("https://network-back-production.up.railway.app/api/network/list");
       if (response.ok) {
         const result = await response.json();
         setConnections(result);
