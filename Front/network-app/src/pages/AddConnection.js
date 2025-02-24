@@ -14,7 +14,7 @@ function AddConnection() {
     };
   
     try {
-      const response = await fetch("https://jj6077bd-5250.brs.devtunnels.ms/api/Network/add", {
+      const response = await fetch("https://network-back-production.up.railway.app/api/network/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -7,7 +7,7 @@ function Networks() {
   // Função para buscar as conexões
   const fetchConnections = async () => {
     try {
-      const response = await fetch("https://jj6077bd-5250.brs.devtunnels.ms/api/Network/list");
+      const response = await fetch("hhttps://network-back-production.up.railway.app/api/network/list");
       if (response.ok) {
         const result = await response.json();
         setConnections(result);
@@ -28,7 +28,7 @@ function Networks() {
     const confirmDelete = window.confirm("Você tem certeza que deseja excluir esta conexão?");
     if (confirmDelete) {
       try {
-        const response = await fetch(`https://jj6077bd-5250.brs.devtunnels.ms/api/Network/remove/${id}`, {
+        const response = await fetch(`https://network-back-production.up.railway.app/api/network/remove/${id}`, {
           method: "DELETE",
         });
         if (response.ok) {
