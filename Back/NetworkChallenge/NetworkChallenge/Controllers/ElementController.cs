@@ -13,11 +13,11 @@ namespace ChallengeRegisterAPI.Controllers
     {
         private readonly IMongoCollection<NetworkConnection> _networkCollection;
 
-        public NetworkController(IMongoClient mongoClient)
-        {
-            var database = mongoClient.GetDatabase("challengeRegister");
-            _networkCollection = database.GetCollection<NetworkConnection>("networkRegister");
-        }
+    public NetworkController(IMongoClient mongoClient)
+    {
+        var database = mongoClient.GetDatabase("challengeRegister");
+        _networkCollection = database.GetCollection<NetworkConnection>("networkRegister");
+    }
 
         [HttpGet("list")]
         public async Task<ActionResult<IEnumerable<object>>> ListConnections()

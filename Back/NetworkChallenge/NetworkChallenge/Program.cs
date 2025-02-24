@@ -23,11 +23,16 @@ public class Program
             });
         });
 
+        // String de conexão do MongoDB
         var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDB");
-        var mongoClient = new MongoClient(mongoConnectionString);
-        var database = mongoClient.GetDatabase("challengeRegister");
 
-        builder.Services.AddSingleton(database);
+        // Registre o MongoClient e o banco de dados
+        builder.Services.AddSingleton<IMongoClient>(serviceProvider => new MongoClient(mongoConnectionString));
+        builder.Services.AddSingleton(serviceProvider =>
+        {
+            var mongoClient = serviceProvider.GetRequiredService<IMongoClient>();
+            return mongoClient.GetDatabase("challengeRegister");
+        });
 
         var app = builder.Build();
 
