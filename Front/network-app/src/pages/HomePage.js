@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
+import './HomePage.css'; // Certifique-se de ter um arquivo de estilo separado para HomePage
 
 function HomePage() {
   return (
-    <div>
-      <h1>Bem-vindo ao Network App</h1>
+    <div className="home-page-container">
       <p>Gerencie suas conexões de rede facilmente.</p>
-      <nav>
-        <Link to="/add"><button>Adicionar Conexão</button></Link>
-        <Link to="/networks"><button>Ver/Apagar Conexões</button></Link>
+      <nav className="nav-links">
+        <Link to="/add">
+          <button className="action-button">Adicionar Conexão</button>
+        </Link>
+        <Link to="/networks">
+          <button className="action-button">Ver/Apagar Conexões</button>
+        </Link>
       </nav>
     </div>
   );
 }
 
 export default HomePage;
+
 
 
