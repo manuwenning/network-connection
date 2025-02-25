@@ -1,30 +1,22 @@
-# Usa uma imagem base do Node.js para construir a aplicação
-FROM node:16 AS build
+# Usando uma imagem base do Node.js
+FROM node:16
 
-# Define o diretório de trabalho dentro do container
+# Definir o diretório de trabalho
 WORKDIR /app
 
-# Copia o package.json e o package-lock.json (caso existam)
-COPY package.json package-lock.json ./
+# Copiar os arquivos package.json e package-lock.json para o diretório de trabalho
+COPY Front/network-app/package.json Front/network-app/package-lock.json /app/
 
-# Instala as dependências do projeto
+# Instalar as dependências
 RUN npm install
 
-# Copia o resto do código da aplicação
-COPY . .
+# Copiar o resto do código da aplicação
+COPY Front/network-app /app
 
-# Constrói a aplicação para produção
-RUN npm run build
+# Expôr a porta (caso necessário)
+EXPOSE 3000
 
-# Usa uma imagem base do Nginx para servir os arquivos estáticos
-FROM nginx:alpine
+# Comando para rodar a aplicação (ajuste conforme necessário)
+CMD ["npm", "start"]
 
-# Copia os arquivos construídos para o diretório padrão do Nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Exponha a porta em que o Nginx está rodando (geralmente 80)
-EXPOSE 80
-
-# Inicia o Nginx quando o container for rodado
-CMD ["nginx", "-g", "daemon off;"]
 
