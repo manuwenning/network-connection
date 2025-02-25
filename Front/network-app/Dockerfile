@@ -5,7 +5,7 @@ FROM node:16 AS build
 WORKDIR /app
 
 # Copia o package.json e o package-lock.json (caso existam)
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 # Instala as dependências do projeto
 RUN npm install
@@ -27,3 +27,4 @@ EXPOSE 80
 
 # Inicia o Nginx quando o container for rodado
 CMD ["nginx", "-g", "daemon off;"]
+
