@@ -4,8 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 # Define o diretório de trabalho dentro do container
 WORKDIR /src
 
-# Copia os arquivos do projeto e restaura as dependências
-COPY ./Back/NetworkChallenge/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
+COPY ./Back/NetworkChallenge/NetworkChallenge.csproj ./NetworkChallenge/
 
 WORKDIR /src/NetworkChallenge
 
