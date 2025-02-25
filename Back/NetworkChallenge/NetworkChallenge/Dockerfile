@@ -7,15 +7,17 @@ WORKDIR /src
 # Copia apenas o .csproj primeiro para otimizar cache
 COPY Back/NetworkChallenge/NetworkChallenge/NetworkChallenge.csproj NetworkChallenge/
 
-RUN dotnet restore /src/NetworkChallenge/NetworkChallenge.csproj
-
-# Copia todo o código do projeto
-COPY ./Back/NetworkChallenge/ ./NetworkChallenge/
-
+# Define o diretório correto antes de restaurar os pacotes
 WORKDIR /src/NetworkChallenge
 
+# Restaura os pacotes necessários
+RUN dotnet restore NetworkChallenge.csproj
+
+# Copia todo o código do projeto
+COPY ./Back/NetworkChallenge/ ./
+
 # Publica a aplicação (gera os arquivos necessários para execução)
-RUN dotnet publish -c Release -o /app/publish --no-restore
+RUN dotnet publish -c Release -o /app/publish
 
 # Usa a imagem base do ASP.NET Core para rodar a aplicação
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
