@@ -4,7 +4,7 @@ import './HomePage.css'; // Certifique-se de ter um arquivo de estilo separado p
 function HomePage() {
   return (
     <div className="home-page-container">
-      <p>Gerencie suas conexões de rede facilmente.</p>
+      <h2>Gerencie suas conexões de rede facilmente.</h2>
       <nav className="nav-links">
         <Link to="/add">
           <button className="action-button">Adicionar Conexão</button>
@@ -18,6 +18,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
-

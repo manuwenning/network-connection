@@ -40,10 +40,23 @@ body {
   height: 100%;
 }
 
-/* Centraliza o título */
+/* Centraliza o título e adiciona margem para afastá-lo do topo */
+.title-container {
+  display: flex;
+  justify-content: center;  /* Centraliza o título horizontalmente */
+  align-items: center;      /* Alinha o título verticalmente */
+  margin-top: 50px;         /* Adiciona uma margem superior para afastar do topo */
+}
+
 h1 {
   font-size: 3rem;
   margin: 0;
+  text-align: center;
+}
+
+/* Garante que o conteúdo da página fique abaixo do título */
+.app-container {
+  padding: 20px; /* Adiciona um espaçamento entre o conteúdo e as bordas da página */
 }
 
 /* Estiliza os links */

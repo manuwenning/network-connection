@@ -9,9 +9,7 @@ function Networks() {
   // Função para buscar as conexões
   const fetchConnections = async () => {
     try {
-
       const response = await fetch("https://network-back-production.up.railway.app/api/Network/list");
-
       if (response.ok) {
         const result = await response.json();
         setConnections(result);
@@ -69,9 +67,7 @@ function Networks() {
         Voltar
       </button>
 
-      {/* Título ajustado para subtítulo */}
-      <h2 style={{ fontSize: "30px", marginBottom: "20px", color: "#fff" }}>Conexões de Rede</h2>
-
+      <h2>Conexões de Rede</h2>
       <p>{status}</p>
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>

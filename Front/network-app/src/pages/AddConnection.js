@@ -12,15 +12,6 @@ function AddConnection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificando se os valores estão entre 1 e 8
-    if (element1 < 1 || element1 > 8 || element2 < 1 || element2 > 8) {
-      setStatus("Os valores de Element1 e Element2 devem estar entre 1 e 8.");
-      // Limpando os campos de Element1 e Element2
-      setElement1("");
-      setElement2("");
-      return;
-    }
-
     const newConnection = {
       element1: parseInt(element1), // Convertendo para número
       element2: parseInt(element2), // Convertendo para número
@@ -58,7 +49,7 @@ function AddConnection() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "20px" }}> {/* Adicionando espaçamento na página toda */}
       {/* Botão Voltar com position fixed */}
       <button 
         onClick={() => navigate("/")} 
@@ -70,6 +61,7 @@ function AddConnection() {
           fontSize: "16px",
           cursor: "pointer",
           backgroundColor: "#333333",
+          color: '#fff',
           border: "1px solid #ccc",
           borderRadius: "5px",
           zIndex: 10, // Para garantir que o botão fique acima de outros elementos
@@ -78,7 +70,10 @@ function AddConnection() {
         Voltar
       </button>
 
+      {/* Título "Adicionar Conexão" */}
       <h1 style={{ fontSize: "28px", color: "#fff", marginBottom: "20px" }}>Adicionar Conexão</h1>
+      
+      {/* Subtítulo em branco */}
       <h2 style={{ fontSize: "18px", color: "#fff", marginBottom: "20px" }}>Preencha os campos abaixo para adicionar uma nova conexão.</h2>
 
       <form onSubmit={handleSubmit} style={{ marginBottom: "30px" }}>

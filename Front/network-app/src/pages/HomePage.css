@@ -1,45 +1,37 @@
+/* HomePage.css */
+
+/* Container principal da home page */
 .home-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh;
-    color: white;
-  }
-  
-  .home-page-container h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .home-page-container p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    padding-top: 20px; /* Ajuste o valor conforme necessário */
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  /* Estilo para os botões */
-button {
-  background-color: #333333; /* Cor de fundo cinza */
-  color: white; /* Cor do texto */
-  border: none; /* Remove a borda do botão */
-  padding: 10px 20px; /* Adiciona um padding para deixar o botão maior */
-  font-size: 16px; /* Define o tamanho da fonte */
-  cursor: pointer; /* Mostra o cursor de mão quando passar sobre o botão */
-  border-radius: 5px; /* Arredonda as bordas do botão */
-  transition: background-color 0.3s; /* Efeito de transição para mudança de cor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centraliza o conteúdo verticalmente */
+  align-items: center;      /* Centraliza o conteúdo horizontalmente */
+  height: 100vh;            /* Ocupa a altura inteira da tela */
+  margin-top: -200px;        /* Afastar o conteúdo do centro para cima */
+  text-align: center;       /* Garantir que o texto fique centralizado */
+}
+.home-page-container h2 {
+  margin-bottom: 50px; /* Ajuste o valor conforme necessário */
 }
 
-/* Efeito ao passar o mouse */
-button:hover {
-  background-color: #6c6c6c; /* Cor de fundo cinza mais escuro ao passar o mouse */
+
+/* Estilo para os links e botões */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre os botões */
 }
 
-  
+.action-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #333;
+}

@@ -9,10 +9,12 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <div className="background-overlay"></div>
-        <div className="app-container">
+        {/* Wrapper para centralizar o título */}
+        <div className="title-container">
           <h1>Network Connect</h1>
-          
+        </div>
+
+        <div className="app-container">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/add" element={<AddConnection />} />
@@ -23,6 +25,5 @@ const App = () => {
     </Router>
   );
 };
-
 
 export default App;
