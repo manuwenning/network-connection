@@ -1,37 +1,53 @@
-/* HomePage.css */
-
-/* Container principal da home page */
 .home-page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* Centraliza o conteúdo verticalmente */
-  align-items: center;      /* Centraliza o conteúdo horizontalmente */
-  height: 100vh;            /* Ocupa a altura inteira da tela */
-  margin-top: -200px;        /* Afastar o conteúdo do centro para cima */
-  text-align: center;       /* Garantir que o texto fique centralizado */
-}
-.home-page-container h2 {
-  margin-bottom: 50px; /* Ajuste o valor conforme necessário */
+  padding: 20px;
+  position: relative;
 }
 
-
-/* Estilo para os links e botões */
 .nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Espaçamento entre os botões */
+  margin-top: 20px;
 }
 
 .action-button {
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #333; /* Cor do botão */
-  color: white;
+  margin: 5px;
   border: none;
-  border-radius: 5px;
+  background-color: #333;
+  color: white;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .action-button:hover {
   background-color: #333;
 }
+
+.author-info {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.author-text {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.linkedin-button {
+  background-color: #0077b5;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.linkedin-button:hover {
+  background-color: #005582;
+}
+
+.linkedin-button svg {
+  color: white;
+}
+

@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage'; // Componente da HomePage
-import AddConnection from './pages/AddConnection'; // Página para adicionar conexões
-import Networks from './pages/Networks'; // Página para ver as conexões
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AddConnection from './pages/AddConnection';
+import Networks from './pages/Networks';
+import FindConnections from './pages/FindConnections';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
-        {/* Wrapper para centralizar o título */}
         <div className="title-container">
           <h1>Network Connect</h1>
         </div>
@@ -19,6 +19,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/add" element={<AddConnection />} />
             <Route path="/networks" element={<Networks />} />
+            <Route path="/find" element={<FindConnections />} />
           </Routes>
         </div>
       </div>
@@ -27,3 +28,5 @@ const App = () => {
 };
 
 export default App;
+
+

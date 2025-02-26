@@ -10,59 +10,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Passo 1: Verificar o código
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Passo 2: Configurar o Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      # Passo 3: Login no Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Passo 4: Construir a imagem Docker para o front-end
       - name: Build front-end Docker image
         run: |
           docker build -f Front/network-app/Dockerfile -t manuwenning/network-front .
 
-      # Passo 5: Construir a imagem Docker para o back-end
       - name: Build back-end Docker image
         run: |
           docker build -f Back/NetworkChallenge/NetworkChallenge/Dockerfile -t manuwenning/network-back .
 
-      # Passo 6: Empurrar a imagem do front-end para o Docker Hub
       - name: Push front-end Docker image
         run: |
           docker push manuwenning/network-front
 
-      # Passo 7: Empurrar a imagem do back-end para o Docker Hub
       - name: Push back-end Docker image
         run: |
           docker push manuwenning/network-back
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build  # O job de deploy só executa após o job de build
+    needs: build
 
     steps:
-      # Passo 1: Fazer login no Docker Hub novamente (se necessário)
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Passo 2: Fazer deploy da imagem do front-end (exemplo de deploy em um servidor via SSH)
       - name: Deploy front-end application
         run: |
           ssh user@server "docker pull manuwenning/network-front:latest && docker run -d --name network-front manuwenning/network-front:latest"
 
-      # Passo 3: Fazer deploy da imagem do back-end (exemplo de deploy em um servidor via SSH)
       - name: Deploy back-end application
         run: |
           ssh user@server "docker pull manuwenning/network-back:latest && docker run -d --name network-back manuwenning/network-back:latest"

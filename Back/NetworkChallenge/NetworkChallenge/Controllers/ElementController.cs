@@ -101,5 +101,91 @@ namespace ChallengeRegisterAPI.Controllers
                 return BadRequest($"Erro ao remover conexão: {ex.Message}");
             }
         }
+
+        [HttpGet("findDirect")]
+        public async Task<ActionResult<IEnumerable<string>>> FindDirectConnections(int element1, int element2)
+        {
+            try
+            {
+                var directConnections = await _networkCollection.Find(c =>
+                    (c.Element1 == element1 && c.Element2 == element2) ||
+                    (c.Element1 == element2 && c.Element2 == element1)
+                ).ToListAsync();
+
+                var connections = directConnections.Select(connection => $"{connection.Element1}-{connection.Element2}").ToList();
+
+                if (connections.Count == 0)
+                {
+                    return NotFound("Nenhuma conexão direta encontrada.");
+                }
+
+                return Ok(connections);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao buscar conexões diretas: {ex.Message}");
+            }
+        }
+
+        [HttpGet("findIndirect")]
+        public async Task<ActionResult<IEnumerable<string>>> FindIndirectConnections(int element1, int element2)
+        {
+            try
+            {
+                var indirectConnections = await GetIndirectConnections(element1, element2, new HashSet<int>());
+
+                var filteredConnections = indirectConnections
+                    .Where(connection => connection.Contains(element1.ToString()) && connection.Contains(element2.ToString()))
+                    .Select(indirect => $"{indirect}")
+                    .ToList();
+
+                if (filteredConnections.Count == 0)
+                {
+                    return NotFound("Nenhuma conexão indireta encontrada.");
+                }
+
+                return Ok(filteredConnections);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao buscar conexões indiretas: {ex.Message}");
+            }
+        }
+
+        private async Task<IEnumerable<string>> GetIndirectConnections(int element1, int element2, HashSet<int> visitedElements)
+        {
+            var indirectConnections = new List<string>();
+
+            if (!visitedElements.Contains(element1))
+            {
+                visitedElements.Add(element1);
+
+                var directConnections = await _networkCollection.Find(c =>
+                    c.Element1 == element1 || c.Element2 == element1
+                ).ToListAsync();
+
+                foreach (var connection in directConnections)
+                {
+                    int nextElement = connection.Element1 == element1 ? connection.Element2 : connection.Element1;
+
+                    if (nextElement != element2 && !visitedElements.Contains(nextElement))
+                    {
+                        string connectionString = $"{element1}-{nextElement} -> {nextElement}-{element2}";
+                        Console.WriteLine($"Adding indirect connection: {connectionString}");
+                        indirectConnections.Add($"{element1}-{nextElement} <> {nextElement}-{element2}");
+
+                        indirectConnections.AddRange(await GetIndirectConnections(nextElement, element2, visitedElements));
+                    }
+                }
+            }
+
+            return indirectConnections.Distinct();
+        }
+
+
+
+
+
     }
+
 }

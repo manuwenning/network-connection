@@ -1,9 +1,7 @@
-/* Centraliza todo o conteúdo da aplicação */
 .App {
   text-align: center;
 }
 
-/* Define o fundo da aplicação */
 body {
   margin: 0;
   min-height: 100vh;
@@ -12,25 +10,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./background.gif') no-repeat center center fixed; /* Imagem de fundo */
+  background: url('./background.gif') no-repeat center center fixed;
   background-size: cover;
 }
 
-/* Adiciona um overlay para tornar o fundo menos transparente */
 .background-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
-  z-index: 1; /* Mantém o overlay atrás do conteúdo */
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
-/* Container principal da aplicação */
 .app-container {
-  position: relative; /* Permite que o conteúdo fique acima do overlay */
-  z-index: 2; /* Garante que o conteúdo fique visível sobre o fundo */
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,12 +36,11 @@ body {
   height: 100%;
 }
 
-/* Centraliza o título e adiciona margem para afastá-lo do topo */
 .title-container {
   display: flex;
-  justify-content: center;  /* Centraliza o título horizontalmente */
-  align-items: center;      /* Alinha o título verticalmente */
-  margin-top: 50px;         /* Adiciona uma margem superior para afastar do topo */
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
 
 h1 {
@@ -54,19 +49,16 @@ h1 {
   text-align: center;
 }
 
-/* Garante que o conteúdo da página fique abaixo do título */
 .app-container {
-  padding: 20px; /* Adiciona um espaçamento entre o conteúdo e as bordas da página */
+  padding: 20px;
 }
 
-/* Estiliza os links */
 .App-link {
   color: #61dafb;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* Estilização do menu de navegação */
 nav ul {
   list-style: none;
   padding: 0;

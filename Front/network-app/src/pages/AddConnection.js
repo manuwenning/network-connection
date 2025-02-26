@@ -1,24 +1,28 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Importar o hook useNavigate
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../config/apiConfig";
 
 function AddConnection() {
-  const [element1, setElement1] = useState(""); // Campo Element1
-  const [element2, setElement2] = useState(""); // Campo Element2
-  const [status, setStatus] = useState(""); // Status da resposta da API
-  const input2Ref = useRef(null); // Referência para o segundo campo de input
+  const [element1, setElement1] = useState("");
+  const [element2, setElement2] = useState("");
+  const [status, setStatus] = useState("");
+  const input2Ref = useRef(null);
 
-  const navigate = useNavigate(); // Instância do hook useNavigate para navegação
+  const [buttonColorBack, setButtonColorBack] = useState("#333333");
+  const [buttonColorAdd, setButtonColorAdd] = useState("#333333");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newConnection = {
-      element1: parseInt(element1), // Convertendo para número
-      element2: parseInt(element2), // Convertendo para número
+      element1: parseInt(element1),
+      element2: parseInt(element2),
     };
 
     try {
-      const response = await fetch("https://network-back-production.up.railway.app/api/network/add", {
+      const response = await fetch(`${BASE_URL}/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,18 +43,16 @@ function AddConnection() {
     }
   };
 
-  // Função que será chamada quando o valor de element1 mudar
   const handleElement1Change = (e) => {
     setElement1(e.target.value);
-    // Quando o campo de element1 não for vazio, move o foco para o input de element2
+
     if (e.target.value !== "") {
       input2Ref.current.focus();
     }
   };
 
   return (
-    <div style={{ padding: "20px" }}> {/* Adicionando espaçamento na página toda */}
-      {/* Botão Voltar com position fixed */}
+    <div style={{ padding: "20px" }}>
       <button 
         onClick={() => navigate("/")} 
         style={{
@@ -60,25 +62,25 @@ function AddConnection() {
           padding: "10px 20px",
           fontSize: "16px",
           cursor: "pointer",
-          backgroundColor: "#333333",
+          backgroundColor: buttonColorBack,
           color: '#fff',
           border: "1px solid #ccc",
           borderRadius: "5px",
-          zIndex: 10, // Para garantir que o botão fique acima de outros elementos
+          zIndex: 10,
         }}
+        onMouseEnter={() => setButtonColorBack("#555555")}
+        onMouseLeave={() => setButtonColorBack("#333333")}
       >
         Voltar
       </button>
 
-      {/* Título "Adicionar Conexão" */}
       <h1 style={{ fontSize: "28px", color: "#fff", marginBottom: "20px" }}>Adicionar Conexão</h1>
       
-      {/* Subtítulo em branco */}
       <h2 style={{ fontSize: "18px", color: "#fff", marginBottom: "20px" }}>Preencha os campos abaixo para adicionar uma nova conexão.</h2>
 
       <form onSubmit={handleSubmit} style={{ marginBottom: "30px" }}>
         <div style={{ marginBottom: "15px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>Element1</label>
+          <label style={{ display: "block", marginBottom: "5px", color: "#fff" }}>Element1</label>
           <input
             type="number"
             value={element1}
@@ -88,17 +90,29 @@ function AddConnection() {
           />
         </div>
         <div style={{ marginBottom: "20px" }}>
-          <label style={{ display: "block", marginBottom: "5px" }}>Element2</label>
+          <label style={{ display: "block", marginBottom: "5px", color: "#fff" }}>Element2</label>
           <input
             type="number"
             value={element2}
             onChange={(e) => setElement2(e.target.value)}
             required
-            ref={input2Ref} // Atribui a referência ao segundo campo
+            ref={input2Ref}
             style={{ padding: "8px", fontSize: "14px", width: "100%" }}
           />
         </div>
-        <button type="submit" style={{ padding: "10px 20px", backgroundColor: "#333", color: "#fff", border: "none", borderRadius: "5px" }}>
+        <button
+          type="submit"
+          style={{
+            padding: "10px 20px",
+            backgroundColor: buttonColorAdd,
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+          onMouseEnter={() => setButtonColorAdd("#555555")}
+          onMouseLeave={() => setButtonColorAdd("#333333")}
+        >
           Adicionar
         </button>
       </form>
