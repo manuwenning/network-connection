@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NetworkChallenge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba4796588b6b9cf476c6f5c2d8b077dffef76ee5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1483c6016ccc1272dab22c497ee41b9c84ca6247")]
 [assembly: System.Reflection.AssemblyProductAttribute("NetworkChallenge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NetworkChallenge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
